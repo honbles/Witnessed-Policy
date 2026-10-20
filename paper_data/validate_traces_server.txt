@@ -1,0 +1,9 @@
+Server run (8-vCPU GCE VM), proto/validate_traces.py after clearing stale /tmp/m_* :
+emulated: split 6/6, stuck, RESOLVE (T20) ACCEPTED 60
+emulated: two RES for one round, then round 2 (T21) ACCEPTED 96
+emulated: Byzantine edge equivocates, 6/5 split ACCEPTED 22
+emulated: 4 edges offline (c=4), commit with 7 of 12 ACCEPTED 16
+real processes (n=16), slot 1 of scale_S2_16 ACCEPTED 32 wall-clock ordered
+real processes (n=32), slot 1 of scale_S2_32 ACCEPTED 62 wall-clock ordered
+real processes (n=64), slot 1 of scale_S2_64 ACCEPTED 69 wall-clock ordered   (partial run; not reported in the paper)
+NEGATIVE CONTROL: commit attestation moved before any prepare REJECTED (spec does not admit the trace) 24 must be REJECTED

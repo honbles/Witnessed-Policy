@@ -1,0 +1,200 @@
+[
+ {
+  "mode": "S1",
+  "k": 1,
+  "divergent_pairs": 11,
+  "values_enforced": 2,
+  "edges_enforcing": 12,
+  "one_sided_grants": 2,
+  "committed_value": "both"
+ },
+ {
+  "mode": "S1",
+  "k": 2,
+  "divergent_pairs": 20,
+  "values_enforced": 2,
+  "edges_enforcing": 12,
+  "one_sided_grants": 2,
+  "committed_value": "both"
+ },
+ {
+  "mode": "S1",
+  "k": 3,
+  "divergent_pairs": 27,
+  "values_enforced": 2,
+  "edges_enforcing": 12,
+  "one_sided_grants": 2,
+  "committed_value": "both"
+ },
+ {
+  "mode": "S1",
+  "k": 4,
+  "divergent_pairs": 32,
+  "values_enforced": 2,
+  "edges_enforcing": 12,
+  "one_sided_grants": 2,
+  "committed_value": "both"
+ },
+ {
+  "mode": "S1",
+  "k": 5,
+  "divergent_pairs": 35,
+  "values_enforced": 2,
+  "edges_enforcing": 12,
+  "one_sided_grants": 2,
+  "committed_value": "both"
+ },
+ {
+  "mode": "S1",
+  "k": 6,
+  "divergent_pairs": 36,
+  "values_enforced": 2,
+  "edges_enforcing": 12,
+  "one_sided_grants": 2,
+  "committed_value": "both"
+ },
+ {
+  "mode": "S1",
+  "k": 7,
+  "divergent_pairs": 35,
+  "values_enforced": 2,
+  "edges_enforcing": 12,
+  "one_sided_grants": 2,
+  "committed_value": "both"
+ },
+ {
+  "mode": "S1",
+  "k": 8,
+  "divergent_pairs": 32,
+  "values_enforced": 2,
+  "edges_enforcing": 12,
+  "one_sided_grants": 2,
+  "committed_value": "both"
+ },
+ {
+  "mode": "S1",
+  "k": 9,
+  "divergent_pairs": 27,
+  "values_enforced": 2,
+  "edges_enforcing": 12,
+  "one_sided_grants": 2,
+  "committed_value": "both"
+ },
+ {
+  "mode": "S1",
+  "k": 10,
+  "divergent_pairs": 20,
+  "values_enforced": 2,
+  "edges_enforcing": 12,
+  "one_sided_grants": 2,
+  "committed_value": "both"
+ },
+ {
+  "mode": "S1",
+  "k": 11,
+  "divergent_pairs": 11,
+  "values_enforced": 2,
+  "edges_enforcing": 12,
+  "one_sided_grants": 2,
+  "committed_value": "both"
+ },
+ {
+  "mode": "S2",
+  "k": 1,
+  "divergent_pairs": 0,
+  "values_enforced": 1,
+  "edges_enforcing": 11,
+  "one_sided_grants": 1,
+  "committed_value": "P'"
+ },
+ {
+  "mode": "S2",
+  "k": 2,
+  "divergent_pairs": 0,
+  "values_enforced": 1,
+  "edges_enforcing": 10,
+  "one_sided_grants": 1,
+  "committed_value": "P'"
+ },
+ {
+  "mode": "S2",
+  "k": 3,
+  "divergent_pairs": 0,
+  "values_enforced": 1,
+  "edges_enforcing": 9,
+  "one_sided_grants": 1,
+  "committed_value": "P'"
+ },
+ {
+  "mode": "S2",
+  "k": 4,
+  "divergent_pairs": 0,
+  "values_enforced": 1,
+  "edges_enforcing": 8,
+  "one_sided_grants": 1,
+  "committed_value": "P'"
+ },
+ {
+  "mode": "S2",
+  "k": 5,
+  "divergent_pairs": 0,
+  "values_enforced": 1,
+  "edges_enforcing": 7,
+  "one_sided_grants": 1,
+  "committed_value": "P'"
+ },
+ {
+  "mode": "S2",
+  "k": 6,
+  "divergent_pairs": 0,
+  "values_enforced": 0,
+  "edges_enforcing": 0,
+  "one_sided_grants": 0,
+  "committed_value": "none"
+ },
+ {
+  "mode": "S2",
+  "k": 7,
+  "divergent_pairs": 0,
+  "values_enforced": 1,
+  "edges_enforcing": 7,
+  "one_sided_grants": 1,
+  "committed_value": "P"
+ },
+ {
+  "mode": "S2",
+  "k": 8,
+  "divergent_pairs": 0,
+  "values_enforced": 1,
+  "edges_enforcing": 8,
+  "one_sided_grants": 1,
+  "committed_value": "P"
+ },
+ {
+  "mode": "S2",
+  "k": 9,
+  "divergent_pairs": 0,
+  "values_enforced": 1,
+  "edges_enforcing": 9,
+  "one_sided_grants": 1,
+  "committed_value": "P"
+ },
+ {
+  "mode": "S2",
+  "k": 10,
+  "divergent_pairs": 0,
+  "values_enforced": 1,
+  "edges_enforcing": 10,
+  "one_sided_grants": 1,
+  "committed_value": "P"
+ },
+ {
+  "mode": "S2",
+  "k": 11,
+  "divergent_pairs": 0,
+  "values_enforced": 1,
+  "edges_enforcing": 11,
+  "one_sided_grants": 1,
+  "committed_value": "P"
+ }
+]

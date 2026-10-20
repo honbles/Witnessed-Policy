@@ -1,0 +1,51 @@
+[
+ {
+  "mode": "S2",
+  "proposed": 250,
+  "committed": 94,
+  "rejected": 156,
+  "violations": 0,
+  "kinds": [],
+  "edges_with_longest_chain": 7,
+  "distinct_chains": 1,
+  "example": []
+ },
+ {
+  "mode": "S1",
+  "proposed": 250,
+  "committed": 94,
+  "rejected": 156,
+  "violations": 0,
+  "kinds": [],
+  "edges_with_longest_chain": 7,
+  "distinct_chains": 1,
+  "example": []
+ },
+ {
+  "mode": "S0",
+  "proposed": 250,
+  "committed": 250,
+  "rejected": 0,
+  "violations": 6581,
+  "kinds": [
+   "Auth",
+   "Cipher",
+   "DefaultPermit",
+   "ProtectedPreserved"
+  ],
+  "edges_with_longest_chain": 7,
+  "distinct_chains": 1,
+  "example": [
+   [
+    "Auth",
+    6,
+    5
+   ],
+   [
+    "Auth",
+    12,
+    11
+   ]
+  ]
+ }
+]

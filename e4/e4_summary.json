@@ -1,0 +1,28 @@
+{
+ "records": 30,
+ "by_capability": {
+  "C3": 2,
+  "C1": 14,
+  "C2": 5,
+  "C4": 9
+ },
+ "exploited_in_wild": 9,
+ "policy_origination": 28,
+ "confidentiality_only": 2,
+ "vendors": [
+  "Arista (VeloCloud)",
+  "Cisco",
+  "Citrix",
+  "Fortinet",
+  "HPE Aruba",
+  "Juniper",
+  "Silver Peak",
+  "VMware",
+  "Versa"
+ ],
+ "years": [
+  2020,
+  2026
+ ],
+ "itw_all_policy_origination": true
+}

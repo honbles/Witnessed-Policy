@@ -1,0 +1,425 @@
+[
+ {
+  "id": "T1",
+  "desc": "Normal grant",
+  "expected": "only the granted flow is allowed",
+  "observed": "heads={1} allowed443=True allowed22=False",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "T2",
+  "desc": "Controller forges a wide grant with no signature",
+  "expected": "rejected; alert",
+  "observed": "heads={0} rejects=['auth'] alerts_to_admin=12",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "T3",
+  "desc": "One administrator signs an over-broad grant",
+  "expected": "pending until T2 approval and delay",
+  "observed": "1 sig: heads={0} ['auth']; 2 sigs: committed, effective before delay=[], after=['w']",
+  "ok": true,
+  "secs": 0.1
+ },
+ {
+  "id": "T4",
+  "desc": "Restricted destination, one signature",
+  "expected": "rejected until m-of-n and delay are met",
+  "observed": "1 sig: ['auth']; 2 sigs: pending=[], effective after delay=['db']",
+  "ok": true,
+  "secs": 0.1
+ },
+ {
+  "id": "T5",
+  "desc": "Stolen single key, standard destination",
+  "expected": "accepted within scope; audit trail records it",
+  "observed": "committed; chain entry approvals=['a0'], cert signers=7",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "T6",
+  "desc": "Stolen key signs two proposals on one base; controller splits delivery",
+  "expected": "S1 divergent until gossip; S2 at most one commits",
+  "observed": "S1 divergent pairs=36 (values 2); S2 divergent pairs=0, values committed=0",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "T7",
+  "desc": "Replay or rollback of an old entry",
+  "expected": "rejected by slot, hash and epoch",
+  "observed": "replay/bad-hash -> ['replay']; stale epoch -> ['epoch', 'replay']",
+  "ok": true,
+  "secs": 0.1
+ },
+ {
+  "id": "T8",
+  "desc": "Grant conflicting with an explicit deny",
+  "expected": "rejected",
+  "observed": "rejects=['wf-deny'] heads={1}",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "T9",
+  "desc": "Endpoint edge offline at commit",
+  "expected": "commits by quorum; dropped at that endpoint until it verifies and installs",
+  "observed": "quorum heads={1} offline endpoint head/forwards=(0, False); after rejoin head=1 forwards=True",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "T11",
+  "desc": "Up to b edges attest to everything",
+  "expected": "cannot commit alone or forge administrator signatures",
+  "observed": "byz attests to forged entry; honest heads={0} rejects=['auth']",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "T12a",
+  "desc": "Revocation (policy level)",
+  "expected": "removed at every edge; sessions reset within the bound (data plane in real_dp)",
+  "observed": "effective grants after revoke={()} max apply delay=0.167s",
+  "ok": true,
+  "secs": 0.1
+ },
+ {
+  "id": "T13",
+  "desc": "Controller down",
+  "expected": "no new changes; existing grants continue",
+  "observed": "after 120 s without controller: heads={1} forwards=True",
+  "ok": true,
+  "secs": 0.2
+ },
+ {
+  "id": "T14",
+  "desc": "Edge offline for weeks, then rejoins",
+  "expected": "verifies the certificate chain from genesis before enforcing",
+  "observed": "rebuilt from genesis: 40 certified entries verified, VOTING after 0.25s, forwarded while SYNC=False, head=40",
+  "ok": true,
+  "secs": 1.3,
+  "chain_len": 40,
+  "active_after_s": 0.25
+ },
+ {
+  "id": "T15",
+  "desc": "Controller withholds a revocation",
+  "expected": "connected edges learn the target slot from peers and fetch; bound measured",
+  "observed": "all 12 edges applied; the 5 withheld edges at <= 0.17s (bound g+4d=5.24s)",
+  "ok": true,
+  "secs": 0.1,
+  "withheld_apply_s": 0.17
+ },
+ {
+  "id": "T16",
+  "desc": "Clock skew beyond sigma, or controller-chosen timestamps",
+  "expected": "certified time stays in the honest range; ordering unaffected",
+  "observed": "Byzantine clock +1e6 s: max certified-time error 0.32s (sigma=0.5); slots ordered 2",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "T19",
+  "desc": "Split vote with 20 percent of edges offline (within c)",
+  "expected": "at most one commits",
+  "observed": "6/4 split, 2 offline: values committed=0",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "T20",
+  "desc": "Split vote with no quorum",
+  "expected": "slot stalls; RESOLVE recovers it; no double commit",
+  "observed": "stalled heads={0}; after RESOLVE heads={1}, distinct values=1",
+  "ok": true,
+  "secs": 0.1
+ },
+ {
+  "id": "T21",
+  "desc": "Two conflicting RESOLVE entries for one round",
+  "expected": "no double commit; stall cleared by the next round",
+  "observed": "two RES for round 1 -> heads={0}; round 2 -> heads={1}, values=1",
+  "ok": true,
+  "secs": 0.1
+ },
+ {
+  "id": "T22",
+  "desc": "Membership change racing a grant",
+  "expected": "epoch rule prevents conflicting authorization",
+  "observed": "old-epoch grant rejected=True; heads={2} (13 edges), slot-2 quorum T={8}; checker violations=0",
+  "ok": true,
+  "secs": 0.1,
+  "n_after": 13,
+  "T_after": 8
+ },
+ {
+  "id": "T23",
+  "desc": "Revoke a grant whose endpoint is offline",
+  "expected": "commits by quorum alone",
+  "observed": "heads (11 up)={2}, effective at others={()}",
+  "ok": true,
+  "secs": 0.1
+ },
+ {
+  "id": "T24",
+  "desc": "Remove a protected invariant with T2 approval",
+  "expected": "rejected (requires T3)",
+  "observed": "T2 approval -> ['auth'], heads={0}; T3 (3 keys) -> committed heads={1}",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "T25",
+  "desc": "Edge loses its attestation record after a crash",
+  "expected": "counts toward b until re-enrolled; no double attestation",
+  "observed": "record lost -> observer: prepares by e2 on slot 1 = 1; checker []",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "T28",
+  "desc": "Single stolen key revokes many grants",
+  "expected": "takes effect (limit documented); audit trail; restoration needs original tier",
+  "observed": "6 grants revoked by one key (effective={()}); restoring the restricted one with one key -> ['auth']; audit entries=12",
+  "ok": true,
+  "secs": 0.4
+ },
+ {
+  "id": "T29",
+  "desc": "One administrator vetoes a T2 entry, then withdraws or is overridden",
+  "expected": "entry resumes; veto cannot block permanently",
+  "observed": "withdraw: suspended=[] -> resumed=['gdb']; T3 override: suspended=[] -> resumed=['gdb']",
+  "ok": true,
+  "secs": 0.3
+ },
+ {
+  "id": "T30",
+  "desc": "Edge boots with no genesis entry",
+  "expected": "forwards nothing, accepts no policy",
+  "observed": "state=UNPROV head=0 forwards=False (others head 1)",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "T31",
+  "desc": "Genesis delivered over the network with altered content",
+  "expected": "rejected by hash mismatch; stays UNPROVISIONED",
+  "observed": "state=UNPROV head=0",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "T32",
+  "desc": "Controller gives a new edge an uncertified head or a valid head of another chain",
+  "expected": "rejected; edge tries peers and stays closed",
+  "observed": "after uncertified+foreign-chain heads from controller: head/state=(0, 'SYNC'); after peers answered: head=2 state=VOTING",
+  "ok": true,
+  "secs": 0.1
+ },
+ {
+  "id": "T33",
+  "desc": "Edge starts while the controller is unreachable",
+  "expected": "default-deny with only the sync channel",
+  "observed": "before sync forwards=False; synced from peers only: head=1 state=VOTING forwards=True",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "T34",
+  "desc": "Day zero with fewer than T edges online",
+  "expected": "nothing commits; genesis grants apply until they expire",
+  "observed": "6 of 12 edges up: heads={0}; genesis grant allowed before lease expiry=True, after=False",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "T35",
+  "desc": "Edge crashes during sync",
+  "expected": "resumes from the last verified entry",
+  "observed": "crashed after 10 verified entries; restart resumed at head=10; completed at head=20",
+  "ok": true,
+  "secs": 0.2
+ },
+ {
+  "id": "T36",
+  "desc": "Wrong genesis found after commits (unusable administrator key)",
+  "expected": "fixed by T3 if m correct keys remain; otherwise new chain; recovery time measured",
+  "observed": "a3 replaced by 3 correct keys in 0.17s and used again (heads={2}); with only 2 correct keys: ['auth'] -> new chain needed",
+  "ok": true,
+  "secs": 0.1,
+  "recovery_s": 0.17
+ },
+ {
+  "id": "T37",
+  "desc": "Attacker substitutes genesis on one edge, with or without a fake controller",
+  "expected": "fails closed or follows an isolated chain; honest edges drop its traffic",
+  "observed": "checked edge state=UNPROV; unchecked edge head=0; honest heads=[1, 1, 1, 1, 1] with evil grant=False",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "T38",
+  "desc": "Stolen key and controller split a slot, then block revocation behind the stuck slot",
+  "expected": "one administrator issues RESOLVE; progress resumes without a delay window; the revocation commits",
+  "observed": "stuck at head {1}; after RESOLVE heads={3}; revocation applied 0.39s after RESOLVE; gF effective=False",
+  "ok": true,
+  "secs": 0.2,
+  "resolve_to_revoked_s": 0.39
+ },
+ {
+  "id": "T39",
+  "desc": "Controller hides a pending T2 entry from administrators",
+  "expected": "edges alert the genesis alert endpoints directly; veto remains possible",
+  "observed": "admin endpoint received 12 pending-entry alerts from edges (controller told nobody); after VETO effective=[]",
+  "ok": true,
+  "secs": 0.1
+ },
+ {
+  "id": "T40",
+  "desc": "Committed T2 entry is vetoed during its delay window",
+  "expected": "activation suspended until UNVETO or T3 override",
+  "observed": "suspended=[] then resumed=['gdb']",
+  "ok": true,
+  "secs": 0.1
+ },
+ {
+  "id": "F1",
+  "desc": "Single host expanded to a /16",
+  "expected": "scope limit",
+  "observed": "rejects=['auth'] heads={0} alerts=['rejected']",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "F2",
+  "desc": "Grant with no committed path",
+  "expected": "path existence",
+  "observed": "rejects=['wf-nopath'] heads={0} alerts=['rejected']",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "F3",
+  "desc": "Routing loop from a path preference",
+  "expected": "loop check",
+  "observed": "rejects=['wf-loop'] heads={0} alerts=['rejected']",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "F4",
+  "desc": "Guest reaches Finance",
+  "expected": "protected invariant",
+  "observed": "rejects=['protected'] heads={0} alerts=['rejected']",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "F5",
+  "desc": "Grant conflicts with a deny",
+  "expected": "conflict check",
+  "observed": "rejects=['wf-deny'] heads={0} alerts=['rejected']",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "F6",
+  "desc": "Only backup path removed",
+  "expected": "operational assertion (alert)",
+  "observed": "rejects=[] heads={1} alerts=['op-assertion:last-backup-path']",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "F7",
+  "desc": "Missing QoS class",
+  "expected": "well-formedness",
+  "observed": "rejects=['wf-qos'] heads={0} alerts=['rejected']",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "F8",
+  "desc": "Grant references an evicted device",
+  "expected": "well-formedness",
+  "observed": "rejects=['wf-evicted']",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "F9",
+  "desc": "Grant in the wrong segment",
+  "expected": "segmentation",
+  "observed": "rejects=['wf-segment-mismatch'] heads={0} alerts=['rejected']",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "F10",
+  "desc": "Overlapping prefixes with contradictory policy",
+  "expected": "conflict check",
+  "observed": "rejects=['wf-deny'] heads={0} alerts=['rejected']",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "F11",
+  "desc": "Accidental default-permit",
+  "expected": "scope, tier and baseline",
+  "observed": "1 key -> ['auth']; 3 keys -> ['auth', 'protected-default-permit']",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "F12",
+  "desc": "Cipher downgrade",
+  "expected": "protected invariant",
+  "observed": "rejects=['protected-cipher'] heads={0} alerts=['rejected']",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "F13",
+  "desc": "Controller bug skips its own validation",
+  "expected": "all edge-side rules",
+  "observed": "5 invalid entries pushed straight to edges: heads={0} reasons=['auth', 'epoch', 'protected', 'protected-default-permit', 'tier']",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "F14",
+  "desc": "Mistake that violates no invariant",
+  "expected": "expected to pass (documents the limit)",
+  "observed": "wrong-port grant committed: heads={1}",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "F15",
+  "desc": "Remove a rule, then grant what it forbade",
+  "expected": "protected invariant",
+  "observed": "removal -> ['auth']; forbidden grant -> ['auth', 'protected']",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "F16",
+  "desc": "Transient WAN outage during a valid change",
+  "expected": "must not block the change",
+  "observed": "3 of 12 edges out during the change: committed at 9 edges; after the outage all heads={1}",
+  "ok": true,
+  "secs": 0.0
+ },
+ {
+  "id": "F17",
+  "desc": "Genesis lists a wrong sync endpoint or key",
+  "expected": "edges fail closed; found at commissioning",
+  "observed": "new edge state=SYNC head=0 forwards=False (stuck in SYNC: visible at commissioning)",
+  "ok": true,
+  "secs": 0.1
+ }
+]

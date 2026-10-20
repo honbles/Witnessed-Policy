@@ -1,0 +1,98 @@
+{
+ "iid-like (a=0.90, 1 h outages) | n=12 | separated": {
+  "P_available": 0.99733,
+  "mean_wait_h": 0.0007,
+  "p99_h": 0.0,
+  "p999_h": 0.257,
+  "max_h": 1.34,
+  "Q": 7
+ },
+ "iid-like (a=0.90, 1 h outages) | n=12 | simple": {
+  "P_available": 0.9097,
+  "mean_wait_h": 0.0458,
+  "p99_h": 1.141,
+  "p999_h": 2.796,
+  "max_h": 4.13,
+  "Q": 9
+ },
+ "iid-like (a=0.90, 1 h outages) | n=16 | separated": {
+  "P_available": 0.99987,
+  "mean_wait_h": 0.0,
+  "p99_h": 0.0,
+  "p999_h": 0.0,
+  "max_h": 0.32,
+  "Q": 9
+ },
+ "iid-like (a=0.90, 1 h outages) | n=16 | simple": {
+  "P_available": 0.98813,
+  "mean_wait_h": 0.0033,
+  "p99_h": 0.046,
+  "p999_h": 0.668,
+  "max_h": 1.83,
+  "Q": 11
+ },
+ "long outages (a=0.90, 10 h) | n=12 | separated": {
+  "P_available": 0.99715,
+  "mean_wait_h": 0.0084,
+  "p99_h": 0.0,
+  "p999_h": 3.293,
+  "max_h": 9.22,
+  "Q": 7
+ },
+ "long outages (a=0.90, 10 h) | n=12 | simple": {
+  "P_available": 0.91892,
+  "mean_wait_h": 0.391,
+  "p99_h": 10.898,
+  "p999_h": 20.801,
+  "max_h": 26.51,
+  "Q": 9
+ },
+ "long outages (a=0.90, 10 h) | n=16 | separated": {
+  "P_available": 0.99895,
+  "mean_wait_h": 0.0022,
+  "p99_h": 0.0,
+  "p999_h": 0.451,
+  "max_h": 4.92,
+  "Q": 9
+ },
+ "long outages (a=0.90, 10 h) | n=16 | simple": {
+  "P_available": 0.98872,
+  "mean_wait_h": 0.0392,
+  "p99_h": 0.381,
+  "p999_h": 8.659,
+  "max_h": 18.02,
+  "Q": 11
+ },
+ "regional correlated (a=0.95 + 3 regions) | n=12 | separated": {
+  "P_available": 0.99455,
+  "mean_wait_h": 0.0046,
+  "p99_h": 0.0,
+  "p999_h": 1.513,
+  "max_h": 4.33,
+  "Q": 7
+ },
+ "regional correlated (a=0.95 + 3 regions) | n=12 | simple": {
+  "P_available": 0.9617,
+  "mean_wait_h": 0.0759,
+  "p99_h": 2.499,
+  "p999_h": 9.401,
+  "max_h": 13.75,
+  "Q": 9
+ },
+ "regional correlated (a=0.95 + 3 regions) | n=16 | separated": {
+  "P_available": 0.9975,
+  "mean_wait_h": 0.0018,
+  "p99_h": 0.0,
+  "p999_h": 0.736,
+  "max_h": 2.82,
+  "Q": 9
+ },
+ "regional correlated (a=0.95 + 3 regions) | n=16 | simple": {
+  "P_available": 0.97528,
+  "mean_wait_h": 0.0709,
+  "p99_h": 2.499,
+  "p999_h": 9.401,
+  "max_h": 13.75,
+  "Q": 11
+ }
+}

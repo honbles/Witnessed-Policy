@@ -1,0 +1,222 @@
+{
+ "attack_S1": {
+  "D2s": 36,
+  "W": 60.901511912584645,
+  "distinct": 2,
+  "T": 7,
+  "byz": 0
+ },
+ "attack_S2_stuck_resolve": {
+  "D2s": 0,
+  "committed": 12,
+  "distinct": 1,
+  "resolve_to_commit_s": 0.28,
+  "byz": 0,
+  "T": 7
+ },
+ "attack_S2_byz_equivocating": {
+  "D2s": 0,
+  "committed": 11,
+  "distinct": 1,
+  "resolve_to_commit_s": 0.28,
+  "byz": 1,
+  "T": 7
+ },
+ "attack_S2_no_resolve": {
+  "enforced": 0,
+  "D": 0
+ },
+ "forged_S1": {
+  "heads": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "rejects": [
+   "auth",
+   "protected",
+   "tier"
+  ],
+  "per_edge": 4
+ },
+ "forged_S2": {
+  "heads": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "rejects": [
+   "auth",
+   "protected",
+   "tier"
+  ],
+  "per_edge": 4
+ },
+ "offline_b1_c4": {
+  "T": 7,
+  "up": 7,
+  "n_minus_b_minus_c": 7,
+  "committed_up": 7
+ },
+ "offline_b1_c5": {
+  "T": 7,
+  "up": 6,
+  "n_minus_b_minus_c": 6,
+  "committed_up": 0,
+  "after_heal_no_retransmit": 0,
+  "after_heal_reproposal": 12
+ },
+ "lost_record_observer=False": {
+  "e2_prepares_slot1": 2,
+  "violations": [
+   "NoDoubleAttest"
+  ]
+ },
+ "lost_record_observer=True": {
+  "e2_prepares_slot1": 1,
+  "violations": []
+ },
+ "revocation": {
+  "connected_max_s": 0.169,
+  "connected_n": 9,
+  "bound_4d_g": 30.24,
+  "partitioned_forwards_t60": true,
+  "partitioned_forwards_t160_after_lease": false,
+  "partitioned_head_after_heal": 2,
+  "catchup_after_heal_s": 2.98
+ },
+ "bootstrap": {
+  "good_state": "VOTING",
+  "substituted_genesis_state": "UNPROV",
+  "bad_forwards": false
+ },
+ "certified_time": {
+  "byz_skew": 1000000.0,
+  "max_abs_err_s": 0.28,
+  "n": 11,
+  "max_abs_err_vs_virtual_now": 0.3
+ },
+ "ed25519_verify_us": 103.9,
+ "scale": [
+  {
+   "n": 10,
+   "mode": "S1",
+   "T": 7,
+   "latency_s": 0.059,
+   "msgs": 30,
+   "kB": 9,
+   "verifies_per_edge": 4,
+   "est_cpu_ms_per_edge": 0.44,
+   "enforced": 10
+  },
+  {
+   "n": 10,
+   "mode": "S2",
+   "T": 7,
+   "latency_s": 0.17,
+   "msgs": 230,
+   "kB": 94,
+   "verifies_per_edge": 24,
+   "est_cpu_ms_per_edge": 2.68,
+   "enforced": 10
+  },
+  {
+   "n": 20,
+   "mode": "S1",
+   "T": 14,
+   "latency_s": 0.059,
+   "msgs": 100,
+   "kB": 27,
+   "verifies_per_edge": 6,
+   "est_cpu_ms_per_edge": 0.64,
+   "enforced": 20
+  },
+  {
+   "n": 20,
+   "mode": "S2",
+   "T": 14,
+   "latency_s": 0.168,
+   "msgs": 900,
+   "kB": 369,
+   "verifies_per_edge": 46,
+   "est_cpu_ms_per_edge": 4.97,
+   "enforced": 20
+  },
+  {
+   "n": 50,
+   "mode": "S1",
+   "T": 34,
+   "latency_s": 0.06,
+   "msgs": 400,
+   "kB": 108,
+   "verifies_per_edge": 9,
+   "est_cpu_ms_per_edge": 0.95,
+   "enforced": 50
+  },
+  {
+   "n": 50,
+   "mode": "S2",
+   "T": 34,
+   "latency_s": 0.17,
+   "msgs": 5400,
+   "kB": 2243,
+   "verifies_per_edge": 109,
+   "est_cpu_ms_per_edge": 11.5,
+   "enforced": 50
+  },
+  {
+   "n": 100,
+   "mode": "S1",
+   "T": 67,
+   "latency_s": 0.06,
+   "msgs": 1200,
+   "kB": 319,
+   "verifies_per_edge": 13,
+   "est_cpu_ms_per_edge": 1.36,
+   "enforced": 100
+  },
+  {
+   "n": 100,
+   "mode": "S2",
+   "T": 67,
+   "latency_s": 0.169,
+   "msgs": 21200,
+   "kB": 8863,
+   "verifies_per_edge": 213,
+   "est_cpu_ms_per_edge": 22.31,
+   "enforced": 100
+  }
+ ],
+ "conformance": {
+  "attack_S2_stuck_resolve": {
+   "events": 60,
+   "violations": []
+  },
+  "attack_S2_byz": {
+   "events": 56,
+   "violations": []
+  },
+  "attack_S2_no_resolve": {
+   "events": 12,
+   "violations": []
+  },
+  "offline_c4": {
+   "events": 21,
+   "violations": []
+  },
+  "revocation": {
+   "events": 69,
+   "violations": []
+  },
+  "scale_10": {
+   "events": 30,
+   "violations": []
+  },
+  "scale_20": {
+   "events": 60,
+   "violations": []
+  }
+ }
+}

@@ -1,0 +1,115 @@
+{
+ "forged_S0_byzctrl0": 12,
+ "forged_S1_byzctrl0": 0,
+ "forged_S2_byzctrl0": 0,
+ "forged_S3_byzctrl1": 0,
+ "forged_S3_byzctrl2": 12,
+ "equiv_S0_divergent_pairs": 36,
+ "equiv_S1_divergent_pairs": 36,
+ "equiv_S2_divergent_pairs": 0,
+ "equiv_S3_divergent_pairs": 0,
+ "cost": [
+  {
+   "mode": "S0",
+   "n": 12,
+   "committed_edges": 12,
+   "latency_s": 0.059,
+   "msgs": 12,
+   "edge_verifies": 1.0
+  },
+  {
+   "mode": "S0",
+   "n": 48,
+   "committed_edges": 48,
+   "latency_s": 0.06,
+   "msgs": 48,
+   "edge_verifies": 1.0
+  },
+  {
+   "mode": "S1",
+   "n": 12,
+   "committed_edges": 12,
+   "latency_s": 0.059,
+   "msgs": 12,
+   "edge_verifies": 3.0
+  },
+  {
+   "mode": "S1",
+   "n": 48,
+   "committed_edges": 48,
+   "latency_s": 0.06,
+   "msgs": 48,
+   "edge_verifies": 3.0
+  },
+  {
+   "mode": "S2",
+   "n": 12,
+   "committed_edges": 12,
+   "latency_s": 0.167,
+   "msgs": 300,
+   "edge_verifies": 27.0
+  },
+  {
+   "mode": "S2",
+   "n": 48,
+   "committed_edges": 48,
+   "latency_s": 0.17,
+   "msgs": 4656,
+   "edge_verifies": 99.0
+  },
+  {
+   "mode": "S3",
+   "n": 12,
+   "committed_edges": 12,
+   "latency_s": 0.113,
+   "msgs": 91,
+   "edge_verifies": 4.0
+  },
+  {
+   "mode": "S3",
+   "n": 48,
+   "committed_edges": 48,
+   "latency_s": 0.115,
+   "msgs": 243,
+   "edge_verifies": 4.0
+  }
+ ],
+ "availability": [
+  {
+   "a_ctrl": 0.999,
+   "a_edge": 0.95,
+   "S0_S1": 0.999,
+   "S3": 0.999994,
+   "S2_n12": 0.998888,
+   "S2_n20": 0.999,
+   "S2_edges_only_n12": 0.999888
+  },
+  {
+   "a_ctrl": 0.999,
+   "a_edge": 0.9,
+   "S0_S1": 0.999,
+   "S3": 0.999994,
+   "S2_n12": 0.996252,
+   "S2_n20": 0.998964,
+   "S2_edges_only_n12": 0.997249
+  },
+  {
+   "a_ctrl": 0.99,
+   "a_edge": 0.9,
+   "S0_S1": 0.99,
+   "S3": 0.999408,
+   "S2_n12": 0.987277,
+   "S2_n20": 0.989964,
+   "S2_edges_only_n12": 0.997249
+  },
+  {
+   "a_ctrl": 0.9999,
+   "a_edge": 0.8,
+   "S0_S1": 0.9999,
+   "S3": 1.0,
+   "S2_n12": 0.949495,
+   "S2_n20": 0.993243,
+   "S2_edges_only_n12": 0.94959
+  }
+ ]
+}

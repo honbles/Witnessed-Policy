@@ -1,0 +1,44 @@
+{
+ "1h|sep": {
+  "Q": 7,
+  "P_mean": 0.9973,
+  "P_ci95": 0.0001,
+  "p999_mean_h": 0.23,
+  "seeds": 20
+ },
+ "1h|simple": {
+  "Q": 9,
+  "P_mean": 0.9108,
+  "P_ci95": 0.0008,
+  "p999_mean_h": 2.46,
+  "seeds": 20
+ },
+ "10h|sep": {
+  "Q": 7,
+  "P_mean": 0.9971,
+  "P_ci95": 0.0005,
+  "p999_mean_h": 2.68,
+  "seeds": 20
+ },
+ "10h|simple": {
+  "Q": 9,
+  "P_mean": 0.9109,
+  "P_ci95": 0.0035,
+  "p999_mean_h": 23.19,
+  "seeds": 20
+ },
+ "regional|sep": {
+  "Q": 7,
+  "P_mean": 0.9931,
+  "P_ci95": 0.0004,
+  "p999_mean_h": 1.76,
+  "seeds": 20
+ },
+ "regional|simple": {
+  "Q": 9,
+  "P_mean": 0.956,
+  "P_ci95": 0.0012,
+  "p999_mean_h": 10.6,
+  "seeds": 20
+ }
+}

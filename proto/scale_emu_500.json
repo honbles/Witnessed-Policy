@@ -1,0 +1,1 @@
+[{"n": 500, "mode": "S1", "b": 166, "T": 334, "committed": 500, "latency_s": 0.06, "msgs": 500, "MB": 0.2, "verifies_per_edge": 3, "wall_s": 1.3}, {"n": 500, "mode": "S2", "b": 166, "T": 334, "committed": 500, "latency_s": 0.17, "msgs": 500500, "MB": 225.1, "verifies_per_edge": 1003, "wall_s": 47.5}]

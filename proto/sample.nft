@@ -1,0 +1,5 @@
+table inet wp { chain forward { type filter hook forward priority 0; policy drop;
+  ct state established,related accept
+  udp dport 51820 accept comment "pinned sync/tunnel"
+  ip saddr @Finance ip daddr @Sales tcp dport 443 accept comment "g1"
+} }

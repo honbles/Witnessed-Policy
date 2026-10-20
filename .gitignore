@@ -1,0 +1,14 @@
+results/
+real_dp_out/
+witnessed_policy_results_*.zip
+__pycache__/
+*.pyc
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out
+plots/*.png
+plots/*.pdf
+spec/states/
+.DS_Store
